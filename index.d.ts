@@ -72,6 +72,14 @@ type NativeAd = {
    * if ad has video content or not.
    */
   video: boolean;
+
+ test: string;
+};
+
+type AdPaidEvent = {
+  value: number;
+  precisionType: number;
+  currencyCode: string;
 };
 
 type options = {
@@ -261,6 +269,7 @@ type NativeAdViewProps = {
   onAdLoaded?: () => void;
   onNativeAdLoaded?: (event: NativeAd) => void;
   onAdFailedToLoad?: (error: { message: string }) => void;
+  onAdPaid?: (event: AdPaidEvent) => void;
 };
 
 type SimpleViewProps = {

@@ -31,6 +31,7 @@ public class RNAdmobNativeViewManager extends ViewGroupManager<RNAdmobNativeView
     public static final String EVENT_AD_LOADED = "onAdLoaded";
     public static final String EVENT_AD_LEFT_APPLICATION = "onAdLeftApplication";
     public static final String EVENT_NATIVE_AD_LOADED = "onNativeAdLoaded";
+    public static final String EVENT_AD_PAID = "onAdPaid";
     public static final String PROP_DELAY_AD_LOAD = "delayAdLoad";
     public static final String PROP_TEST_DEVICES = "testDevices";
     public static final String PROP_AD_UNIT_ID = "adUnitID";
@@ -67,6 +68,7 @@ public class RNAdmobNativeViewManager extends ViewGroupManager<RNAdmobNativeView
                 EVENT_AD_LOADED,
                 EVENT_AD_LEFT_APPLICATION,
                 EVENT_NATIVE_AD_LOADED,
+                EVENT_AD_PAID,
         };
         for (String event : events) {
             builder.put(event, MapBuilder.of("registrationName", event));
