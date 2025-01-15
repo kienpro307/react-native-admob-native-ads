@@ -62,7 +62,11 @@ public class RNAdmobMediaView extends MediaView {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-
+          try {
+             if(this != null){
+                this.removeAllViews();
+            }
+        } catch (Exception e) {}
     }
 
     @Override

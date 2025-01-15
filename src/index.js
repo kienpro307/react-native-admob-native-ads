@@ -83,6 +83,10 @@ export class NativeAdView extends Component {
     }
   };
 
+  onAdPaid = (event) => {
+    if (this.props.onAdPaid) this.props.onAdPaid(event.nativeEvent);
+  }
+
   _onAdLeftApplication = (event) => {
     if (this.props.onAdLeftApplication)
       this.props.onAdLeftApplication(event.nativeEvent);
@@ -143,6 +147,7 @@ export class NativeAdView extends Component {
             AdOptions.mediaAspectRatio[this.props.mediaAspectRatio]
           }
           onNativeAdLoaded={this.onNativeAdLoaded}
+          onAdPaid={this.onAdPaid}
           requestNonPersonalizedAdsOnly={
             this.props.requestNonPersonalizedAdsOnly
           }

@@ -27,6 +27,8 @@ import com.google.android.gms.ads.nativead.MediaView;
 import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
 import com.google.android.gms.ads.nativead.NativeAdView;
+import com.google.android.gms.ads.AdValue;
+import com.google.android.gms.ads.OnPaidEventListener;
 
 import java.lang.reflect.Method;
 import java.util.Objects;
@@ -308,6 +310,19 @@ public class RNAdmobNativeView extends LinearLayout {
                             mediaView.requestLayout();
                         }
                         setNativeAdToJS(nativeAd);
+                        if(nativeAd != null) {         
+                            nativeAd.setOnPaidEventListener(new OnPaidEventListener() {
+                                @Override
+                                public void onPaidEvent(@NonNull AdValue adValue) {
+                                    WritableMap adValueMap = Arguments.createMap();
+                                    adValueMap.putInt("precisionType", adValue.getPrecisionType());
+                                    adValueMap.putString("currencyCode", adValue.getCurrencyCode());
+                                    adValueMap.putDouble("value", 1e-6 *  adValue.getValueMicros());
+                                    // Gửi sự kiện lên React Native
+                                    sendEvent(RNAdmobNativeViewManager.EVENT_AD_PAID, adValueMap);               
+                                }
+                            });
+                         }
                     }
                 } else {
                     if (!CacheManager.instance.isLoading(adRepo)) {

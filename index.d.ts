@@ -267,6 +267,7 @@ type NativeAdViewProps = {
   onAdLoaded?: () => void;
   onNativeAdLoaded?: (event: NativeAd) => void;
   onAdFailedToLoad?: (error: { message: string }) => void;
+  onAdPaid?: (event: AdPaidEvent) => void;
 };
 
 type SimpleViewProps = {
