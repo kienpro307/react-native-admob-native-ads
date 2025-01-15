@@ -216,7 +216,7 @@ public class RNAdMobUnifiedAdQueueWrapper {
         }
 
         if (config.hasKey("requestNonPersonalizedAdsOnly")) {
-            // Utils.setRequestNonPersonalizedAdsOnly(config.getBoolean("requestNonPersonalizedAdsOnly"), adRequest);
+            Utils.setRequestNonPersonalizedAdsOnly(config.getBoolean("requestNonPersonalizedAdsOnly"), adRequest);
         }
 
         if (config.hasKey("mediaAspectRatio")) {
