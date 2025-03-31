@@ -167,10 +167,11 @@ public class RNAdmobNativeViewManager extends ViewGroupManager<RNAdmobNativeView
 
     @ReactProp(name = PROP_ICON_VIEW)
     public void setPropIconView(final RNAdmobNativeView nativeAdWrapper, final int id) {
-
-        ImageView view = (ImageView) nativeAdWrapper.findViewById(id);
-        nativeAdWrapper.nativeAdView.setIconView(view);
-        nativeAdWrapper.setNativeAd();
+        try {
+            ImageView view = (ImageView) nativeAdWrapper.findViewById(id);
+            nativeAdWrapper.nativeAdView.setIconView(view);
+            nativeAdWrapper.setNativeAd();
+        } catch (Exception ignore) {}
     }
 
     @ReactProp(name = PROP_STORE_VIEW)

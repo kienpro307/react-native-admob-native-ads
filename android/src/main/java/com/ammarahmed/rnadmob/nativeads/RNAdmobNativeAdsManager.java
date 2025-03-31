@@ -128,4 +128,9 @@ public class RNAdmobNativeAdsManager extends ReactContextBaseJavaModule {
         promise.resolve(CacheManager.instance.hasAd(repository));
     }
 
+    @ReactMethod
+    public void isLoading (String id, Promise promise) {
+        promise.resolve(CacheManager.instance.isLoading(id));
+    }
+
 }

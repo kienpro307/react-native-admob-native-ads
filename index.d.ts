@@ -168,6 +168,7 @@ type AdRepositoryConfig = {
   mediaAspectRatio?: "any" | "landscape" | "portrait" | "square" | "unknown";
   swipeGestureDirection?: "right" | "left" | "up" | "down";
   tapsAllowed?: boolean;
+  totalRetryCount?: number;
 };
 
 type ImagePropsWithOptionalSource = Omit<ImageProps, "source"> &
@@ -428,6 +429,7 @@ declare module "react-native-admob-native-ads" {
 
     openAdInspector: () => void;
     openDebugMenu: (adUnitId: string) => void;
+    isLoading: (id: string) => Promise<boolean>;
   };
 
   export const AdOptions: options;

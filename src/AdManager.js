@@ -44,6 +44,10 @@ function unRegisterRepository(name) {
   return RNAdmobNativeAdsManager.unRegisterRepository(name);
 }
 
+async function isLoading(id) {
+  return RNAdmobNativeAdsManager.isLoading(id);
+}
+
 async function hasAd(name) {
   return RNAdmobNativeAdsManager.hasAd(name);
 }
@@ -67,4 +71,5 @@ export default {
   subscribe,
   openAdInspector,
   openDebugMenu,
+  isLoading
 };
