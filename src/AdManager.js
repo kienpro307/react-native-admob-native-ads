@@ -52,6 +52,10 @@ async function hasAd(name) {
   return RNAdmobNativeAdsManager.hasAd(name);
 }
 
+async function isRegistered(name) {
+  return RNAdmobNativeAdsManager.isRegistered(name)
+}
+
 async function resetCache() {
   return RNAdmobNativeAdsManager.resetCache();
 }
@@ -71,5 +75,6 @@ export default {
   subscribe,
   openAdInspector,
   openDebugMenu,
+  isRegistered,
   isLoading
 };

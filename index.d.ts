@@ -430,6 +430,7 @@ declare module "react-native-admob-native-ads" {
     openAdInspector: () => void;
     openDebugMenu: (adUnitId: string) => void;
     isLoading: (id: string) => Promise<boolean>;
+    isRegistered: (name: string) => Promise<boolean>;
   };
 
   export const AdOptions: options;
